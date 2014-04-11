@@ -1,5 +1,5 @@
 === Akismet ===
-Contributors: matt, ryan, andy, mdawaffe, tellyworth, josephscott, lessbloat, eoigal, automattic
+Contributors: matt, ryan, andy, mdawaffe, tellyworth, josephscott, lessbloat, eoigal, cfinke, automattic
 Tags: akismet, comments, spam
 Requires at least: 3.0
 Tested up to: 3.8.1
@@ -31,8 +31,18 @@ Upload the Akismet plugin to your blog, Activate it, then enter your [Akismet.co
 
 == Changelog ==
 
-= 2.6.1 =
-* Closes a potential XSS vulnerability.
+= 3.0-beta =
+* Move Akismet to Settings menu
+* Drop Akismet Stats menu
+* Add stats snapshot to Akismet settings
+* Add Akismet subscription details and status to Akismet settings
+* Add contextual help for each page
+* Improve Akismet setup to use Jetpack to automate plugin setup
+* Fix Update Check for Spam to use ajax to avoid page timing out
+* Fix Akismet settings page to be responsive
+* Drop legacy code
+* Tidy up CSS an Javascript
+* Replace the old discard setting with a new "discard pervasive spam" feature.
 
 = 2.6.0 =
 * Add ajax paging to the check for spam button to handle large volumes of comments
