@@ -1,8 +1,12 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
 <div class="akismet-box">
-	<?php Akismet::view( 'title' ); ?>
-	<?php Akismet::view( 'setup' );?>
+	<?php Akismet::view( 'setup' ); ?>
 </div>
-<br/>
+
 <div class="akismet-box">
-	<?php Akismet::view( 'enter' );?>
+	<?php Akismet::view( 'enter' ); ?>
 </div>

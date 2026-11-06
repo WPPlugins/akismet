@@ -1,10 +1,14 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 global $wpcom_api_key, $akismet_api_host, $akismet_api_port;
 
 $wpcom_api_key    = defined( 'WPCOM_API_KEY' ) ? constant( 'WPCOM_API_KEY' ) : '';
 $akismet_api_host = Akismet::get_api_key() . '.rest.akismet.com';
-$akismet_api_port = 80;
+$akismet_api_port = Akismet::API_PORT;
 
 function akismet_test_mode() {
 	return Akismet::is_test_mode();
@@ -13,7 +17,7 @@ function akismet_test_mode() {
 function akismet_http_post( $request, $host, $path, $port = 80, $ip = null ) {
 	$path = str_replace( '/1.1/', '', $path );
 
-	return Akismet::http_post( $request, $path, $ip ); 
+	return Akismet::http_post( $request, $path, $ip );
 }
 
 function akismet_microtime() {
@@ -24,19 +28,20 @@ function akismet_delete_old() {
 	return Akismet::delete_old_comments();
 }
 
-function akismet_delete_old_metadata() { 
+function akismet_delete_old_metadata() {
 	return Akismet::delete_old_comments_meta();
 }
 
 function akismet_check_db_comment( $id, $recheck_reason = 'recheck_queue' ) {
-   	return Akismet::check_db_comment( $id, $recheck_reason );
+	return Akismet::check_db_comment( $id, $recheck_reason );
 }
 
 function akismet_rightnow() {
-	if ( !class_exists( 'Akismet_Admin' ) )
+	if ( ! class_exists( 'Akismet_Admin' ) ) {
 		return false;
-   
-   	return Akismet_Admin::rightnow_stats();
+	}
+
+	return Akismet_Admin::rightnow_stats();
 }
 
 function akismet_admin_init() {
